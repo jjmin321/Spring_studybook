@@ -1,6 +1,6 @@
-# https://jjmin321.github.io/development/JAVA-Spring-공식-문서-보고-시작하기/
 # 🏄‍♂️ Spring Tutorial 7/28/2020 ~ 8/4/2020 🏄‍♂️
-🔖 https://spring.io/projects/spring-boot라는 스프링 공식 사이트의 문서를 참조하였습니다. 🔖
+🔖 https://spring.io/projects/spring-boot 라는 스프링 공식 사이트의 문서를 참조하였습니다. 🔖
+
 
 ## 👨‍💻스프링 웹 개발 👨‍💻
 예전에는 JSP, PHP같은 정적 코드를 동적으로 꾸며주는 웹 서버가 주로 개발되었지만 
@@ -127,3 +127,5 @@ localhost:8080/hello-static.html을 주소창에 입력하면 내가 만든 hell
 <img width="1383" alt="image" src="https://user-images.githubusercontent.com/52072077/88643189-5e42e600-d0fc-11ea-99db-50bf7bd6adfc.png">
 
 ## MVC 패턴 및 템플릿 엔진 
+
+https://jjmin321.github.io/development/JAVA-Spring-공식-문서-보고-시작하기/
