@@ -1,8 +1,13 @@
+---
+title: "[JAVA] Spring 공식 문서 보고 시작하기 2020-07-28"
+date: 2020-07-28 11:15:28 -0400
+categories: Development
+---
+
 # 🏄‍♂️ Spring Tutorial 7/28/2020 ~ 8/4/2020 🏄‍♂️
-🔖 https://spring.io/projects/spring-boot 라는 스프링 공식 사이트의 문서를 참조하였습니다. 🔖
+🔖<a href="https://spring.io/projects/spring-boot">스프링 공식 사이트</a>의 문서를 참조하였습니다. 🔖
 
-
-## 👨‍💻스프링 웹 개발 👨‍💻
+# 👨‍💻스프링 웹 개발 👨‍💻
 예전에는 JSP, PHP같은 정적 코드를 동적으로 꾸며주는 웹 서버가 주로 개발되었지만 
 최근에는 NodeJS, Spring, Django를 이용하여 API 방식을 통해 필요한 데이터만 처리해준다. 
 우리나라의 대부분의 기업들이 Spring을 서버 개발자의 기본 사항으로 여기며 배우기에는 어렵지만 배워놓으면 매우 좋은 프레임워크라서 시작하게 되었다.
@@ -18,12 +23,13 @@
     - Thymeleaf Template engine
     - Spring Web Service
 
-## 스프링의 구조 
-- MVC 패턴이 고정되어있으며 아래와 같은 폴더 구조를 보인다. 
-    - Java/Application은 SpringApplication을 실행하는 메인 클래스를 포함
-    - Java/Controller는 클라이언트가 요청한 방식, 데이터를 받아서 로직을 통해 처리함
-    - Resources/Static에는 정적파일들을 넣어 사용할 수 있다.
-    - Resources/Templates는 정적파일들을 넣지만 컨트롤러와 연동하여 동적으로 사용할 수 있다.
+# ⚗️ 스프링의 구조 ⚗️
+MVC 패턴이 고정되어있으며 아래와 같은 폴더 구조를 보인다. 
+- Java/Application은 SpringApplication을 실행하는 메인 클래스를 포함
+- Java/Controller는 클라이언트가 요청한 방식, 데이터를 받아서 로직을 통해 처리함
+- Resources/Static에는 정적파일들을 넣어 사용할 수 있다.
+- Resources/Templates는 정적파일들을 넣지만 컨트롤러와 연동하여 동적으로 사용할 수 있다.
+- <a href="https://github.com/jjmin321/Spring_studybook" target="_blank">프로젝트 구조</a>
 
 ```
 src/main    
@@ -41,21 +47,18 @@ src/main
     │ application.properties
 ```
 
-## 스프링 기본 메서드 -> ViewResolver으로 처리
+# 🚇 스프링 기본 메서드 -> ViewResolver으로 처리 🚇
 #### ViewResolver : Resources폴더 하위 파일을 찾는다.
 Resources/Static 에 정적 파일을 만들고 톰캣으로 정적 파일을 띄울 수 있다. 
 <br>
 <img width="350" alt="image" src="https://user-images.githubusercontent.com/52072077/88655957-81749200-d10a-11ea-9b41-cee51f361c08.png">
-<br>
-localhost:8080/hello-static.html을 주소창에 입력하면 내가 만든 hello-static.html이 브라우저에 뜬다.
-<br>
-<img width="1440" alt="image" src="https://user-images.githubusercontent.com/52072077/88656665-a3224900-d10b-11ea-8a21-d9b185cfc235.png">
 
-
-- 파라미터로 값을 받아 그에 따른 페이지 출력
-    - hello.hellospring/Controller에서 hello 메서드 생성
+파라미터로 값을 받아 그에 따른 페이지 출력
+- hello.hellospring/Controller에서 hello 메서드 생성
+- <a href="https://github.com/jjmin321/Spring_studybook/blob/master/src/main/java/hello/hellospring/controller/HelloController.java" target="_blank">HelloController.java</a>
 
     ```java
+    // src/main/java/hello.hellospring.controller/HelloController.java
     @Controller
     public class HelloController {
         @GetMapping("hello")
@@ -65,8 +68,8 @@ localhost:8080/hello-static.html을 주소창에 입력하면 내가 만든 hell
         }
     }
     ```
-    - return "hello"를 하면 Resources/Template 폴더 아래의 hello라는 정적파일과 연동이 된다.
-
+- return "hello"를 하면 Resources/Template 폴더 아래의 hello라는 정적파일과 연동이 된다.
+- <a href="https://github.com/jjmin321/Spring_studybook/blob/master/src/main/resources/templates/hello.html" target="_blank">hello.html</a>
     ```html
     <!DOCTYPE html>
     <html xmlns:th="http://www.thymeleaf.org">
@@ -79,15 +82,15 @@ localhost:8080/hello-static.html을 주소창에 입력하면 내가 만든 hell
     </html>
     ```
     <br>
-    - localhost:8080?name=제정민 을 입력하면 내가 원한대로 동작이 된다.
-<img width="1440" alt="image" src="https://user-images.githubusercontent.com/52072077/88768162-a3771e80-d1b5-11ea-9a01-ffac020adb48.png">
 
-## 스프링 @ResponseBody -> HttpMessageConverter로 처리 
-#### HttpMessageConverter : 파일을 찾지 않고 즉시 응답
+# 🏗️ 스프링 @ResponseBody -> HttpMessageConverter로 처리 🏗️
+### HttpMessageConverter : 파일을 찾지 않고 즉시 응답
 
-- 문자열을 반환하면 html코드로 변환하여 반환된다.
+문자열을 반환하면 html코드로 변환하여 반환된다.
+- <a href="https://github.com/jjmin321/Spring_studybook/blob/master/src/main/java/hello/hellospring/controller/HelloController.java" target="_blank">HelloController.java</a>
 
 ```java
+// src/main/java/hello.hellospring.controller/HelloController.java
 @GetMapping("hello-spring")
     @ResponseBody
     public String helloString(@RequestParam(value = "name", required = false) String name){
@@ -95,9 +98,11 @@ localhost:8080/hello-static.html을 주소창에 입력하면 내가 만든 hell
     }
 ```
 
-- 객체를 반환하면 JSON코드로 변환하여 반환된다. 
+객체를 반환하면 JSON코드로 변환하여 반환된다. 
+- <a href="https://github.com/jjmin321/Spring_studybook/blob/master/src/main/java/hello/hellospring/controller/HelloController.java" target="_blank">HelloController.java</a>
 
 ```java
+// src/main/java/hello.hellospring.controller/HelloController.java
 @GetMapping("hello-api")
     @ResponseBody
     public Hello helloApi(@RequestParam("name") String name) {
@@ -106,11 +111,30 @@ localhost:8080/hello-static.html을 주소창에 입력하면 내가 만든 hell
         return hello;
     }
 ```
-<br>
-<img width="1440" alt="image" src="https://user-images.githubusercontent.com/52072077/88797171-da612a80-d1dd-11ea-9538-b23abbf2b73a.png">
 
+# 🍾 스프링 코드 테스트 🍾
+개발한 기능을 실행해서 테스트를 해봐야할 때 main메서드 또는 컨트롤러를 통해서 실행한다. 이러한 방법은 준비를 해야하고, 반복 실행을 하기 귀찮으며 여러 테스트를 한 번에 하기 어렵다는 단점이 있다. JUnit이라는 프레임워크로 테스트를 실행해서 이러한 문제를 해결할 수 있다.
 
-## 스프링 빌드 방법
+@Test를 붙히면 JUnit이라는 프레임워크가 동작하여 main메서드가 아니더라도 코드를 테스트해볼 수 있다.
+- 장점 : 컴파일 에러 뿐만아니라 실행 에러도 잡을 수 있다.
+- 장점2 : 언제든지 어떤 메서드든 테스트할 수 있다. 
+- 단점 : 적응할 시간이 많이 필요하다.
+- 단점2 : 메서드에서 사용한 객체를 끝나면 지워줘야 한다.
+- <a href="https://github.com/jjmin321/Spring_studybook/blob/master/src/test/java/hello/hellospring/repository/MemoryMemberRepositoryTest.java" target="_blank">HelloSpringApplicationsTests.java</a>
+    
+```java
+// src/test/java/hello.hellospring.repository/HelloSpringApplicationsTests.java
+    @Test
+    public void save() {
+        Member member = new Member();
+        member.setName("spring");
+        repository.save(member);
+        Member result = repository.findById(member.getId()).get();
+        Assertions.assertEquals(result, member);
+    }
+```
+
+# 🏛️ 스프링 빌드 방법 🏛️
 빌드를 통해 보통 리눅스를 사용하는 서버 컴퓨터에서 자바 코드를 모두 작성할 필요 없이 빌드파일로 실행이 가능하다.
 
 1. 프로젝트 폴더 터미널을 통해 ./gradlew build 명령어를 입력한다.
@@ -126,6 +150,4 @@ localhost:8080/hello-static.html을 주소창에 입력하면 내가 만든 hell
 4. java -jar (파일) 명령어로 SPRING을 빌드할 수 있다.
 <img width="1383" alt="image" src="https://user-images.githubusercontent.com/52072077/88643189-5e42e600-d0fc-11ea-99db-50bf7bd6adfc.png">
 
-## MVC 패턴 및 템플릿 엔진 
-
-https://jjmin321.github.io/development/JAVA-Spring-공식-문서-보고-시작하기/
+# MVC 패턴 및 템플릿 엔진 
