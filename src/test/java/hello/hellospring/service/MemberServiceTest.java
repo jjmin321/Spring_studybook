@@ -1,5 +1,4 @@
 package hello.hellospring.service;
-// 11:52
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.assertj.core.api.Assertions;
