@@ -19,9 +19,10 @@ categories: Development
     
 - 작업 설정 (https://start.spring.io)
     - Spring Boot 2.3.2
-    - Maven Project
+    - Gradle Project
     - Thymeleaf Template engine
     - Spring Web Service
+    - Spring data jpa
 
 # ⚗️ 스프링의 구조 ⚗️
 MVC 패턴이 고정되어있으며 아래와 같은 폴더 구조를 보인다. 
