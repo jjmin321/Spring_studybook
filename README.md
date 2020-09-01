@@ -4,7 +4,7 @@ date: 2020-07-28 11:15:28 -0400
 categories: Development
 ---
 
-# 🏄‍♂️ Spring Tutorial 7/28/2020 ~ 8/4/2020 🏄‍♂️
+# 🏄‍♂️ Spring Tutorial🏄‍♂️
 🔖<a href="https://spring.io/projects/spring-boot">스프링 공식 사이트</a>의 문서를 참조하였습니다. 🔖
 
 # 👨‍💻스프링 웹 개발 👨‍💻
